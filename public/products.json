@@ -1,0 +1,244 @@
+[
+        {
+            "id": 1,
+            "title": "Каблучка з бриліантом",
+            "img": "../public/ring_with_diamond.webp",
+            "desc": "Елегантна каблучка з неперевершеним бриліантом, яка вражає своєю красою та сяйвом.",
+            "category": "rings",
+            "price": 5000
+        },
+        {
+            "id": 2,
+            "title": "Рожеве золото: Годинник.",
+            "img": "../public/watch_pink_gold.webp",
+            "desc": "Наручний годинник з рожевого золота, що підкреслить ваш стиль та елегантність.",
+            "category": "watchs",
+            "price": 8000
+        },
+        {
+            
+            "id": 3,
+            "title": "Сережки з перлами",
+            "img": "../public/ear_ring_pearl.jpg",
+            "desc": "Шарм і краса в об'єднанні з перловими сережками.",
+            "category": "earrings",
+            "price": 3000
+        },
+        {
+            
+            "id": 4,
+            "title": "Підвіска з сапфіром",
+            "img": "../public/sapfir.webp",
+            "desc": "Сапфірна підвіска, таємнича та елегантна.",
+            "category": "necklace",
+            "price": 6000
+        },
+        {
+            "id": 5,
+            "title": "Золотий браслет з малюнком",
+            "img": "../public/gold_braclete.webp",
+            "desc": "Браслет з золота, малюнок вражає красою.",
+            "category": "bracletes",
+            "price": 7000
+        },
+        {
+            "id": 6,
+            "title": "Сталевий браслет з чорними діамантами",
+            "img": "../public/gold_braclete.webp",
+            "desc": "Міцний блиск чорних каменів.",
+            "category": "bracletes",
+            "price": 5500
+        },
+        {
+            "id": 7,
+            "title": "Срібна підвіска з кристалом",
+            "img": "../public/sapfir.webp",
+            "desc": "Сяйво чистого срібла та кристалу.",
+            "category": "pendants",
+            "price": 4000
+        },
+        {
+            "id": 8,
+            "title": "Золоті обручки з викрутками",
+            "img": "../public/ring_with_diamond.webp",
+            "desc": "Елегантність із золотом у кожному оберті.",
+            "category": "earrings",
+            "price": 6000
+        },
+        {
+            "id": 9,
+            "title": "Червоне золото: годинник-браслет",
+            "img": "../public/watch_pink_gold.webp",
+            "desc": "Чарівне поєднання часу та стилю.",
+            "category": "watchs",
+            "price": 9000
+        },
+        {
+            "id": 10,
+            "title": "Кольє з емальованими кульками",
+            "img": "../public/img/enamel_necklace_balls.jpg",
+            "desc": "Кольоровий акцент емальованих кульок.",
+            "category": "necklace",
+            "price": 3500
+        },
+        {
+            "id": 11,
+            "title": "Пара обручок із зрізаними бриліантами",
+            "img": "../public/ring_with_diamond.webp",
+            "desc": "Блиск і магія кришталевого світла.",
+            "category": "rings",
+            "price": 7000
+        },
+        {
+            "id": 12,
+            "title": "Сережки зі смарагдами",
+            "img": "../public/ear_ring_pearl.jpg",
+            "desc": "Смарагдове сяйво в кожному оберті.",
+            "category": "earrings",
+            "price": 4500
+        },
+        {
+            "id": 13,
+            "title": "Золота брошка у вигляді квітки",
+            "img": "../public/img/gold_brooch_flower.jpg",
+            "desc": "Золота квітка, що розквітає на вашій одежі.",
+            "category": "brooches",
+            "price": 4800
+        },
+        {
+            "id": 14,
+            "title": "Кольє з кришталевими серцями",
+            "img": "../public/sapfir.webp",
+            "desc": "Серце, що б'ється з кришталевою чистотою.",
+            "category": "necklace",
+            "price": 4200
+        },
+        {
+            "id": 15,
+            "title": "Підвіска-амулет із символом безкінечності",
+            "img": "../public/sapfir.webp",
+            "desc": "Безкінечність у кожному камені.",
+            "category": "pendants",
+            "price": 3800
+        },
+        {
+            "id": 16,
+            "title": "Срібні обручки з вишуканим орнаментом",
+            "img": "../public/ring_with_diamond.webp",
+            "desc": "Витонченість срібного орнаменту.",
+            "category": "rings",
+            "price": 5200
+        },
+        {
+            "id": 17,
+            "title": "Сережки з рубінами та діамантами",
+            "img": "../public/ear_ring_pearl.jpg",
+            "desc": "Розкіш і гра світла у кожній сережці.",
+            "category": "earrings",
+            "price": 6200
+        },
+        {
+            "id": 18,
+            "title": "Браслет з жовтого золота зі вставками із каменів-зірок",
+            "img": "../public/gold_braclete.webp",
+            "desc": "Зіркове сяйво на вашому зап'ясті.",
+            "category": "bracletes",
+            "price": 5800
+        },
+        {
+            "id": 19,
+            "title": "Кольє з перлами та кристалами",
+            "img": "../public/img/pearl_crystal_necklace.jpg",
+            "desc": "Перлинна елегантність із кристальною іскрою.",
+            "category": "necklace",
+            "price": 4700
+        },
+        {
+            "id": 20,
+            "title": "Срібна підвіска у вигляді місяця",
+            "img": "../public/img/silver_pendant_moon.jpg",
+            "desc": "Місячне світло в сріблі.",
+            "category": "pendants",
+            "price": 4200
+        },
+        {
+            "id": 21,
+            "title": "Обручки з опалами та сапфірами",
+            "img": "../public/ring_with_diamond.webp",
+            "desc": "Опальне світло з сапфіровим блиском.",
+            "category": "rings",
+            "price": 6500
+        },
+        {
+            "id": 22,
+            "title": "Сережки-краплі з квітковим візерунком",
+            "img": "../public/img/flower_pattern_earrings.jpg",
+            "desc": "Крапля краси з квітковим чаром.",
+            "category": "earrings",
+            "price": 4900
+        },
+        {
+            "id": 23,
+            "title": "Золотий браслет з рельєфним малюнком",
+            "img": "../public/gold_braclete.webp",
+            "desc": "Золотий витвір мистецтва на вашому зап'ясті.",
+            "category": "bracletes",
+            "price": 5500
+        },
+        {
+            "id": 24,
+            "title": "Підвіска з червоним коралом",
+            "img": "../public/img/red_coral_pendant.jpg",
+            "desc": "Червоне світло у кожній краплинці.",
+            "category": "pendants",
+            "price": 4300
+        },
+        {
+            "id": 25,
+            "title": "Срібні обручки з ромбовидними кристалами",
+            "img": "../public/ring_with_diamond.webp",
+            "desc": "Геометричний шарм у сріблі та кристалах.",
+            "category": "earrings",
+            "price": 5900
+        },
+        {
+            "id": 26,
+            "title": "Пара сережок з перлинами та зірками",
+            "img": "../public/ear_ring_pearl.jpg",
+            "desc": "Перлинна елегантність зі зірковим блиском.",
+            "category": "earrings",
+            "price": 4600
+        },
+        {
+            "id": 27,
+            "title": "Золотий кулон з кристалами із сірникового вигляду",
+            "img": "../public/img/gold_pendant_crystal.jpg",
+            "desc": "Сяюча краса кристалів у золоті.",
+            "category": "pendants",
+            "price": 5100
+        },
+        {
+            "id": 28,
+            "title": "Срібний браслет з інкрустацією зі сріблястих каменів",
+            "img": "../public/gold_braclete.webp",
+            "desc": "Сріблясте сяйво на вашому зап'ясті.",
+            "category": "bracletes",
+            "price": 5200
+        },
+        {
+            "id": 29,
+            "title": "Кольє з намистинами з червоного коралу",
+            "img": "../public/sapfir.webp",
+            "desc": "Коралова краса намистин на вашій шиї.",
+            "category": "necklace",
+            "price": 4900
+        },
+        {
+            "id": 30,
+            "title": "Сережки-гвоздики з топазами",
+            "img": "../public/ear_ring_pearl.jpg",
+            "desc": "Топазова краса в кожній сережці.",
+            "category": "earrings",
+            "price": 4700
+        }
+    ]

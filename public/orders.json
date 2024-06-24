@@ -1,0 +1,16 @@
+[
+    {
+      "date": "2024-06-07T12:30:00",
+      "orders": [
+        { "name": "Item 1", "price": 200 },
+        { "name": "Item 2", "price": 150 }
+      ]
+    },
+    {
+      "date": "2024-06-08T15:45:00",
+      "orders": [
+        { "name": "Item 3", "price": 300 }
+      ]
+    }
+  ]
+  

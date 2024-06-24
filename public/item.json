@@ -1,0 +1,44 @@
+[
+{
+    "id": 1,
+    "title": "Каблучка з бриліантом",
+    "img": "../public/ring_with_diamond.webp",
+    "desc": "Елегантна каблучка з неперевершеним бриліантом, яка вражає своєю красою та сяйвом.",
+    "category": "rings",
+    "price": 5000
+  },
+  {
+    "id": 2,
+    "title": "Рожеве золото: Годинник.",
+    "img": "../public/watch_pink_gold.webp",
+    "desc": "Наручний годинник з рожевого золота, що підкреслить ваш стиль та елегантність.",
+    "category": "watchs",
+    "price": 8000
+  },
+  {
+    
+    "id": 3,
+    "title": "Сережки з перлами",
+    "img": "../public/ear_ring_pearl.jpg",
+    "desc": "Шарм і краса в об'єднанні з перловими сережками.",
+    "category": "earrings",
+    "price": 3000
+  },
+  {
+    
+    "id": 4,
+    "title": "Підвіска з сапфіром",
+    "img": "../public/sapfir.webp",
+    "desc": "Сапфірна підвіска, таємнича та елегантна.",
+    "category": "necklace",
+    "price": 6000
+  },
+  {
+    "id": 5,
+    "title": "Золотий браслет з малюнком",
+    "img": "../public/gold_braclete.webp",
+    "desc": "Браслет з золота, малюнок вражає красою.",
+    "category": "bracletes",
+    "price": 7000
+  }
+]

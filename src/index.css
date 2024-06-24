@@ -1,0 +1,660 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Глобальний скидання для видалення стандартних відступів та полів у всіх елементів */
+
+body {
+	background: #fff;
+	color: #333;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	height: 100vh;
+}
+
+/* Стиль для тіла документа: встановлення фону, кольору тексту, шрифту та згладжування шрифту */
+
+.wrapper, 
+.wrapper-catalog, 
+.wrapper-about-us,
+.wrapper-profile,
+.wrapper-cabinet {
+	width: 1280px;
+	margin: 50px auto;
+}
+
+/* Класи-обгортки для центрування контенту з фіксованою шириною та відступами */
+
+header {
+	position: relative;
+}
+
+/* Стилі для заголовка з відносним позиціонуванням */
+
+header .logo {
+	font-weight: 600;
+	font-size: 20px;
+	margin-top: -20px;
+	cursor: pointer;
+}
+
+/* Стиль для логотипу всередині заголовка */
+
+header ul.nav {
+	float: right;
+	list-style: none;
+}
+
+/* Стилі для навігаційного меню: плаваюче вирівнювання вправо та видалення стилів списку */
+
+header ul.nav li {
+	display: inline;
+	margin-left: 25px;
+	cursor: pointer;
+	transition: opacity 500ms ease;
+	border: none;
+	background: none;
+	color: #333;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+/* Пункти навігаційного меню: відображення в рядок, відступи та ефекти наведення */
+
+header .shop-cart-btn {
+	float: right;
+	cursor: pointer;
+	transition: color 500ms ease;
+	margin-left: 25px;
+	margin-top: 9px;
+}
+
+/* Стилі для кнопки кошика з ефектами наведення */
+
+header .shop-cart-btn:hover,
+header .shop-cart-btn.active {
+	color: #dc3d3d;
+}
+
+/* Зміна кольору кнопки кошика при наведенні та активному стані */
+
+header .shop-cart {
+	position: absolute;
+	top: 30px;
+	right: 0;
+	width: 450px;
+	background: #fafafa;
+	-webkit-box-shadow: 4px 5px 15px -7px #606060;
+	box-shadow: 4px 5px 15px -7px #606060;
+	z-index: 1000;
+	padding: 20px;
+	padding-bottom: 0;
+}
+
+/* Стиль випадаючого кошика покупок з тіньовим ефектом */
+
+header .shop-cart .empty h2 {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+/* Стиль для повідомлення про пустий кошик */
+
+header .shop-cart .item {
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+}
+
+/* Стиль для товарів у кошику */
+
+header .shop-cart .item img {
+	width: 70px;
+	float: left;
+	margin-right: 20px;
+}
+
+/* Зображення товарів у кошику: розмір та відступи */
+
+header .shop-cart .item h2 {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+/* Назва товару у кошику */
+
+header .shop-cart .item b {
+	color: #797979;
+	font-weight: 600;
+}
+
+/* Ціна товару у кошику */
+
+header .item .delete-icon {
+	color: #ca5252;
+	float: right;
+	position: relative;
+	top: -10px;
+	cursor: pointer;
+	transition: color 500ms ease;
+	transition: transform 500ms ease;
+}
+
+/* Стиль іконки видалення з ефектами наведення */
+
+header .item .delete-icon:hover {
+	color: #dc3d3d;
+	transform: scale(1.5);
+}
+
+/* Ефекти наведення на іконку видалення: зміна кольору та масштабування */
+
+header .shop-cart .sum {
+	float: left;
+	width: 100%;
+	font-weight: 600;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+/* Стиль для загальної суми у кошику */
+
+header ul.nav li:hover {
+	opacity: 0.5;
+}
+
+/* Ефект наведення на пункти навігаційного меню: зміна прозорості */
+
+header .presentation {
+	margin: 50px 0;
+	background: url('../public/photo_for_jewerly-transformed.jpeg') no-repeat;
+	width: 100%;
+	height: 500px;
+	background-size: cover;
+	background-position: center center;
+	background-blend-mode: multiply;
+	background-color: #bcbcbc;
+	position: relative;
+}
+
+/* Стиль для презентаційної секції з фоновим зображенням та накладанням */
+
+header .presentation:after {
+	content: 'Де мрії перетворюються на блискучу реальність – ваш ювелірний світ в наших витворах.';
+	position: absolute;
+	top: 100px;
+	left: 50px;
+	width: 300px;
+	font-size: 30px;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+/* Текст накладання першого рядка у презентаційній секції */
+
+header .presentation:before {
+	content: 'Даруйте собі блиск і красу разом з нами!';
+	position: absolute;
+	top: 330px;
+	left: 50px;
+	width: 300px;
+	font-size: 15px;
+	font-weight: 300;
+	color: #ffffff;
+}
+
+/* Текст накладання другого рядка у презентаційній секції */
+
+.categories div {
+	display: inline-block;
+	background: #f2f2f2;
+	border-radius: 50px;
+	padding: 10px 20px;
+	margin-bottom: 25px;
+	margin-right: 15px;
+	cursor: pointer;
+	border: 1px solid transparent;
+	transition: all 500ms ease;
+}
+
+/* Стиль для категорій товарів з ефектами наведення */
+
+.categories div:hover {
+	border-color: silver;
+	transform: scale(1.1);
+}
+
+/* Ефект наведення на категорії: зміна кольору межі та масштабування */
+
+.full-item {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 9999;
+	overflow: auto;
+}
+
+/* Стиль для повного перегляду товару з фоновим накладанням */
+
+.full-item > div {
+	width: 600px;
+	position: relative;
+	margin: 10% auto;
+	padding: 40px 30px;
+	background: #fff;
+	border-radius: 9px;
+}
+
+/* Стиль для контенту повного перегляду товару */
+
+.full-item > div img {
+	width: 100%;
+	border-radius: 10px 10px;
+	transition: transform 500ms ease;
+	cursor: pointer;
+}
+
+/* Стиль для зображення повного перегляду товару з ефектами наведення */
+
+.full-item > div img:hover {
+	transform: scale(1.05);
+}
+
+/* Ефект наведення на зображення повного перегляду товару: масштабування */
+
+.full-item h2,
+.full-item p,
+.full-item b {
+	margin: 10px 20px;
+	color: #333;
+}
+
+/* Стиль тексту повного перегляду товару */
+
+.full-item b {
+	color: #39a54b;
+}
+
+/* Стиль жирного тексту повного перегляду товару */
+
+.full-item .add-to-card {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	background: #ca5252;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	color: #fff;
+	border-radius: 50px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: transform 500ms ease;
+}
+
+/* Стиль кнопки додавання до кошика з ефектами наведення */
+
+.full-item .add-to-card:hover {
+	transform: scale(1.5) translateY(-5px);
+}
+
+/* Ефект наведення на кнопку додавання до кошика: масштабування та зміщення */
+
+main {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+/* Стиль для основної секції з використанням гнучкого макета */
+
+main .item {
+	width: 30%;
+	margin-bottom: 50px;
+	background: #f5f5f5;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+/* Стиль для окремого товару в основній секції */
+
+main .item img {
+	width: 100%;
+	border-radius: 10px 10px;
+	transition: transform 500ms ease;
+	cursor: pointer;
+}
+
+/* Стиль для зображення товару з ефектами наведення */
+
+main .item img:hover {
+	transform: scale(1.05);
+}
+
+/* Ефект наведення на зображення товару: масштабування */
+
+main h2,
+main p,
+main b {
+	margin: 10px 20px;
+	color: #333;
+}
+
+/* Стиль тексту товару в основній секції */
+
+main b {
+	color: #39a54b;
+}
+
+/* Стиль жирного тексту товару в основній секції */
+
+main .add-to-card {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	background: #ca5252;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	color: #fff;
+	border-radius: 50px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: transform 500ms ease;
+}
+
+/* Стиль кнопки додавання до кошика у товару з ефектами наведення */
+
+main .add-to-card:hover {
+	transform: scale(1.5) translateY(-5px);
+}
+
+/* Ефект наведення на кнопку додавання до кошика у товару: масштабування та зміщення */
+
+.name {
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+/* Стиль для назви товару */
+
+.about-us {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+/* Стиль для секції "Про нас" */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	margin-top: 50px;
+	width: 600px;
+	background: #dacece;
+	padding-bottom: 30px;
+}
+
+/* Стиль для контейнера з центруванням та внутрішніми відступами */
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 9px;
+	width: 100%;
+	margin-top: 30px;
+}
+
+/* Стиль заголовку в контейнері з центруванням та відступами */
+
+.text {
+	color: #1605a8c2;
+	font-size: 48px;
+	font-weight: 700;
+}
+
+/* Стиль для тексту всередині заголовку */
+
+.underline {
+	width: 61px;
+	height: 6px;
+	background: #1605a8c2;
+	border-radius: 9px;
+}
+
+/* Стиль підкреслення всередині заголовку */
+
+.inputs {
+	margin-top: 55px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+/* Секція для вводу всередині контейнеру */
+
+.input {
+	display: flex;
+	align-items: center;
+	margin: auto;
+	width: 480px;
+	height: 80px;
+	background: #eaeaea;
+	border-radius: 6px;
+}
+
+/* Стиль для окремого поля вводу */
+
+.input img {
+	margin: 0px, 30px;
+	margin-left: 25px;
+}
+
+/* Стиль для зображення всередині поля вводу */
+
+.input input {
+	height: 50px;
+	width: 400px;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #797979;
+	font-size: 19px;
+}
+
+/* Стиль для текстового вводу всередині поля вводу */
+
+.input :placeholder-shown {
+	margin-left: 25px;
+}
+
+/* Стиль для плейсхолдера всередині полів вводу */
+
+.forgot-password,
+.already {
+	padding-left: 62px;
+	margin-top: 27px;
+	color: #797979;
+	font-size: 18px;
+}
+
+/* Додатковий стиль для посилань під полями вводу */
+
+.forgot-password span,
+.already span {
+	color: #4c00b4;
+	cursor: pointer;
+}
+
+/* Стиль для активних посилань */
+
+.submit-container {
+	display: flex;
+	gap: 30px;
+}
+
+/* Контейнер для кнопок надсилання */
+
+.submit {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 220px;
+	height: 59px;
+	color: #fff;
+	background: #4c00b4;
+	border-radius: 50px;
+	font-size: 19px;
+	font-weight: 700;
+	cursor: pointer;
+	margin-top: 20px;
+	margin-left: 55px;
+}
+
+/* Стиль для кнопки надсилання */
+
+.btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 120px;
+	height: 59px;
+	color: #fff;
+	background: #4c00b4;
+	border-radius: 50px;
+	font-size: 19px;
+	font-weight: 700;
+	cursor: pointer;
+	margin-top: 20px;
+	margin-left: 235px;
+	transition: 500ms ease-out;
+}
+
+.btn:hover {
+	background: #eaeaea;
+	color: #676767;
+}
+
+/* Кнопка з ефектами наведення */
+
+.catalog, 
+.aboutus,
+.profile,
+.logo,
+.LogIn,
+.SignUp  {
+	text-decoration: none;
+}
+
+/* Видалення підкреслення тексту для вказаних класів */
+
+.log-in {
+	background-color: #eaeaea; 
+	color: #4654ab; 
+	border: none; 
+	padding: 10px 20px; 
+	font-size: 16px; 
+	border-radius: 5px;
+	cursor: pointer; 
+	transition: background-color 0.3s ease; 
+	margin-left: 30px;
+}
+
+.login {
+	text-decoration: none;
+}
+  
+.log-in:hover {
+	background-color: #71716e7f; 
+}
+
+/* Кнопка входу з ефектами наведення */
+
+.buy {
+	display: flex;
+	float: right;
+	border: none;
+	background: #fff;
+	cursor: pointer;
+	margin-top: -50px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	padding: 10px;
+}
+
+.buy:hover {
+	background: #eaeaea;
+}
+
+/* Кнопка покупки з ефектами наведення */
+
+.gray {
+	background: #eaeaea;
+	color: #676767;
+}
+
+/* Сіра кнопка */
+
+.contact-title {
+	margin-top: 20px;
+	font-size: 15px;
+}
+
+/* Заголовок контактної інформації */
+
+.contact-number {
+	margin-top: 10px;
+	font-size: 15px;
+}
+
+/* Номер телефону */
+
+.profile-title {
+	margin-top: 20px;
+	font-size: 15px;
+	text-align: center;
+}
+
+/* Заголовок профілю */
+
+ul {
+	display: inline;
+	margin-left: 25px;
+	transition: opacity 500ms ease;
+	border: none;
+	background: none;
+	color: #333;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+/* Ненумеровані списки з ефектами наведення */
+
+footer {
+	margin-top: 20px;
+	font-size: 15px;
+	text-align: center;
+}
+
+/* Футер */
