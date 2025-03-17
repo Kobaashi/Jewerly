@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import fetch from './controller/orderController.js';
 import Item from './model/itemModel.js';
+import Products from './model/productModel.js';
 import cors from 'cors';
 
 const app = express();
@@ -29,6 +30,23 @@ app.get('/item', async (req, res) => {
     }
 
     res.json(items);
+  } catch (err) {
+    console.error('❌ Error fetching items:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/product', async (req, res) => {
+  try {
+    const products = await Products.find();
+
+    console.log('Fetched items:', products.length > 0 ? products : 'No items found');
+
+    if (products.length === 0) {
+      return res.status(404).json({ message: 'No items found' });
+    }
+
+    res.json(products);
   } catch (err) {
     console.error('❌ Error fetching items:', err);
     res.status(500).json({ error: err.message });

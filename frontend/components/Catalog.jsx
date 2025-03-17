@@ -23,12 +23,12 @@ export class Catalog extends Component {
   }
 
   componentDidMount() {
-    this.readFromFile('../public/products.json');
+    this.readFromFile();
     this.loadOrdersFromLocalStorage();
   }
 
   readFromFile() {
-    fetch("products.json")
+    fetch("http://localhost:5000/product")
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
