@@ -35,7 +35,7 @@ const Profile = ({ loginsuccesfully, setLoginsuccesfully, user, setUser }) => {
                         </li>
                       ))
                     ) : (
-                      <p>Замовлення порожнє.</p>
+                      <p>Нічого не замовленно</p>
                     )}
                   </ul>
                 </li>

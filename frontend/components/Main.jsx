@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../components/Header'; 
-import Items from '../components/Items'; 
-import Categories from '../components/Categories'; 
+import Header from '../components/Header';
+import Items from '../components/Items';
+import Categories from '../components/Categories';
 import ShowFullItem from '../components/ShowFullItem';
 import Tabs from '../components/Tabs';
 
@@ -10,7 +10,7 @@ class Main extends Component {
     super(props);
     this.state = {
       orders: [],
-      currentItems: [], 
+      currentItems: [],
       items: [],
       showFullItem: false,
       fullItem: {}
@@ -22,29 +22,30 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    this.readFromFile('../public/item.json');
+    this.readFromFile();
     this.loadOrdersFromLocalStorage();
   }
 
   readFromFile() {
-    fetch("item.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        this.setItems(data);
-      })
-      .catch(error => console.error('Error reading file:', error));
+    fetch("http://localhost:5000/item")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Fetched data:', data);  // Додайте це для перевірки
+    this.setItems(data);
+  })
+  .catch(error => console.error('Error reading file:', error));
+
   }
 
   setItems(newItems) {
-    this.setState({ 
-      items: newItems, 
-      currentItems: newItems 
+    this.setState({
+      items: newItems,
+      currentItems: newItems
     });
   }
 
@@ -62,7 +63,7 @@ class Main extends Component {
     }
     this.setState({
       currentItems: this.state.items.filter(item => item.category === category)
-    }); 
+    });
   }
 
   addToOrder(item) {
@@ -77,7 +78,7 @@ class Main extends Component {
 
   deleteOrder(id) {
     const newOrders = this.state.orders.filter(order => order.id !== id);
-    this.setState({ 
+    this.setState({
       orders: newOrders
     }, () => {
       localStorage.setItem('orders', JSON.stringify(newOrders));

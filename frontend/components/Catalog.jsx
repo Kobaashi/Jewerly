@@ -11,7 +11,7 @@ export class Catalog extends Component {
     super(props);
     this.state = {
       orders: [],
-      currentItems: [], 
+      currentItems: [],
       products: [],
       showFullItem: false,
       fullItem: {}
@@ -43,9 +43,9 @@ export class Catalog extends Component {
   }
 
   setItems(newProduct) {
-    this.setState({ 
-      items: newProduct, 
-      currentItems: newProduct 
+    this.setState({
+      items: newProduct,
+      currentItems: newProduct
     });
   }
 
@@ -63,11 +63,11 @@ export class Catalog extends Component {
     }
     this.setState({
       currentItems: this.state.items.filter(item => item.category === category)
-    }); 
+    });
   }
 
   deleteOrder(id) {
-    this.setState({ 
+    this.setState({
       orders: this.state.orders.filter(order => order.id !== id)
     });
   }
@@ -98,7 +98,7 @@ export class Catalog extends Component {
             <Footer />
           </section>
       </div>
-      
+
     )
   }
 }
