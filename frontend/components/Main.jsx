@@ -76,6 +76,7 @@ class Main extends Component {
     }
   }
 
+
   deleteOrder(id) {
     const newOrders = this.state.orders.filter(order => order.id !== id);
     this.setState({

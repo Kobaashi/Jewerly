@@ -12,7 +12,7 @@ function Tabs({ orders, onDelete, setOrders }) {
   const handleBuy = () => {
     if (loginsuccesfully === true) {
       const currentOrders = [...orders];
-      saveOrdersToFile(currentOrders);
+      saveOrdersToServer(currentOrders);
       alert('Дякую за покупку!');
     } else {
       alert('Будь ласка, увійдіть для покупки товарів.');
@@ -24,7 +24,7 @@ function Tabs({ orders, onDelete, setOrders }) {
     setLoginsuccesfully(prevLogin => !prevLogin);
   };
 
-  const saveOrdersToFile = (currentOrders) => {
+  const saveOrdersToServer = async (currentOrders) => {
     const currentDate = new Date().toLocaleString();
     const orderData = currentOrders.map((order) => ({
       name: order.title,
@@ -38,12 +38,23 @@ function Tabs({ orders, onDelete, setOrders }) {
 
     let existingData = JSON.parse(localStorage.getItem('orders')) || [];
     existingData.push(dataToSave);
+
     localStorage.setItem('orders', JSON.stringify(existingData));
 
-    const content = JSON.stringify(existingData, null, 2);
-    const blob = new Blob([content], { type: 'application/json;charset=utf-8' });
-    saveAs(blob, 'orders.json');
-  };
+    const response = await fetch('http://localhost:5000/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataToSave),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text(); // Get the error as text
+      console.error('Server Error:', errorText);
+      return;
+    }
+  }
 
   const onDeleteAll = () => {
     setOrders([]);

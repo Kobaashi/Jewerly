@@ -4,15 +4,14 @@ const orderSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     price: { type: Number, required: true }
-  },
-  { timestamps: true },
+  }
 );
 
-const Order = new mongoose.Schema({
+const orderSchemaForMainOrder = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   orders: [orderSchema]
 });
 
-const OrderModel = mongoose.model('Order', orderSchema);
+const OrderModel = mongoose.model('Order', orderSchemaForMainOrder, 'orders');
 
 export default OrderModel;
