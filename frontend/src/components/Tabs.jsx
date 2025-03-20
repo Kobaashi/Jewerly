@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { MdOutlineShoppingBag } from 'react-icons/md';
 import Order from './Order';
 import { Link } from 'react-router-dom';
-import { saveAs } from 'file-saver';
 
 function Tabs({ orders, onDelete, setOrders }) {
   const [cartOpen, setCartOpen] = useState(false);

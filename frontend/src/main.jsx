@@ -9,11 +9,11 @@ import {
 } from "react-router-dom"
 import "./index.css"
 import ErrorPage from './error-page.jsx'
-import Catalog from '../components/Catalog.jsx'
-import AboutUs from '../components/AboutUs.jsx'
-import Profile from '../components/Profile.jsx'
-import LogIn from '../components/LogIn.jsx'
-import SignUp from '../components/SignUp.jsx'
+import Catalog from './components/Catalog.jsx'
+import AboutUs from './components/AboutUs.jsx'
+import Profile from './components/Profile.jsx'
+import LogIn from './components/LogIn.jsx'
+import SignUp from './components/SignUp.jsx'
 
 const router = createBrowserRouter([
   {

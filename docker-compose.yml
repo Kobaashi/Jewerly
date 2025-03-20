@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - jewelry
+    environment:
+      - REACT_APP_API_URL=http://backend:3002
+
+  backend:
+    build: ./backend
+    ports:
+      - "3002:3003"
+    networks:
+      - jewelry
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - jewelry
+    volumes:
+      - ./data:/data/db
+
+networks:
+  jewelry:
+    driver: bridge

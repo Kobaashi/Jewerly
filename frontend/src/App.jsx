@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Main from '../components/Main';
-import Catalog from '../components/Catalog';
-import AboutUs from '../components/AboutUs';
-import Profile from '../components/Profile';
+import Main from './components/Main';
+import Catalog from './components/Catalog';
+import AboutUs from './components/AboutUs';
+import Profile from './components/Profile';
 
 function App() {
 
