@@ -10,7 +10,7 @@ import { format } from 'date-fns';
 
 const app = express();
 const PORT = 5000;
-const mongodb = "mongodb+srv://Koba_Yashy:GodSlayer@cluster0.s4qdc.mongodb.net/Jewerly?retryWrites=true&w=majority&appName=Cluster0";
+const mongodb = process.env.mongoDB || "mongodb+srv://Koba_Yashy:GodSlayer@cluster0.s4qdc.mongodb.net/Jewerly?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(mongodb)
