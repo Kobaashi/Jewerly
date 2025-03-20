@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import user_icon from '../public/person.png'
-import email_icon from '../public/email.png'
-import password_icon from '../public/password.png'
-import firebase from '../src/firebaseConfig'
+import user_icon from '../../public/person.png'
+import email_icon from '../../public/email.png'
+import password_icon from '../../public/password.png'
+import firebase from '../firebaseConfig'
 import { Link} from "react-router-dom"
 
 function SignUp() {
 
-  const [name, setName] = useState('') 
-  const [email, setEmail] = useState('') 
-  const [password, setPassword] = useState('') 
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const submit = async(e) => {
     e.preventDefault()
     try {
@@ -30,10 +30,10 @@ function SignUp() {
           <div className="underline"></div>
       </div>
           <div className="inputs">
-            {action === "Log In" ? <div></div> : <div className="input"> 
+            {action === "Log In" ? <div></div> : <div className="input">
               <img src={user_icon} alt="" />
               <input type="text" value={name} placeholder="Введіть ім'я" onChange={(e) => setName(e.target.value)}/>
-            </div>} 
+            </div>}
             <div className="input">
               <img src={email_icon} alt="" />
               <input type="email" value={email} placeholder="Введіть email" onChange={(e) => setEmail(e.target.value)}/>

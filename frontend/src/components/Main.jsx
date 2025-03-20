@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import Items from '../components/Items';
-import Categories from '../components/Categories';
-import ShowFullItem from '../components/ShowFullItem';
-import Tabs from '../components/Tabs';
+import Header from '../Header';
+import Items from '../Items';
+import Categories from '../Categories';
+import ShowFullItem from '../ShowFullItem';
+import Tabs from '../Tabs';
 
 class Main extends Component {
   constructor(props) {

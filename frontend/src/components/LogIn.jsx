@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import email_icon from '../public/email.png'
-import password_icon from '../public/password.png'
-import firebase from '../src/firebaseConfig'
+import email_icon from '../../public/email.png'
+import password_icon from '../../public/password.png'
+import firebase from '../firebaseConfig'
 import { Link} from "react-router-dom";
 
 function LogIn() {
 
   const [action, setAction] = useState("Log-In")
-  const [email, setEmail] = useState('') 
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const submit = async(e) => {
     e.preventDefault()
