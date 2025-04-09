@@ -1,107 +1,80 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import Items from './Items';
 import Categories from './Categories';
 import ShowFullItem from './ShowFullItem';
 import Tabs from './Tabs';
 
-class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      orders: [],
-      currentItems: [],
-      items: [],
-      showFullItem: false,
-      fullItem: {}
-    };
-    this.addToOrder = this.addToOrder.bind(this);
-    this.deleteOrder = this.deleteOrder.bind(this);
-    this.chooseCategory = this.chooseCategory.bind(this);
-    this.onShowItem = this.onShowItem.bind(this);
-  }
+const Main = () => {
+  const [orders, setOrders] = useState([]);
+  const [items, setItems] = useState([]);
+  const [currentItems, setCurrentItems] = useState([]);
+  const [showFullItem, setShowFullItem] = useState(false);
+  const [fullItem, setFullItem] = useState({});
 
-  componentDidMount() {
-    this.readFromFile();
-    this.loadOrdersFromLocalStorage();
-  }
+  useEffect(() => {
+    readFromFile();
+    loadOrdersFromLocalStorage();
+  }, []);
 
-  readFromFile() {
+  const readFromFile = () => {
     fetch("http://localhost:5000/item")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched data:', data);
+        setItems(data);
+        setCurrentItems(data);
+      })
+      .catch(error => console.error('Error reading file:', error));
+  };
+
+  const onShowItem = (item) => {
+    setFullItem(item);
+    setShowFullItem(prev => !prev);
+  };
+
+  const chooseCategory = (category) => {
+    if (category === 'all') {
+      setCurrentItems(items);
+    } else {
+      setCurrentItems(items.filter(item => item.category === category));
     }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Fetched data:', data);  // Додайте це для перевірки
-    this.setItems(data);
-  })
-  .catch(error => console.error('Error reading file:', error));
+  };
 
-  }
-
-  setItems(newItems) {
-    this.setState({
-      items: newItems,
-      currentItems: newItems
-    });
-  }
-
-  onShowItem(items) {
-    this.setState(prevState => ({
-      fullItem: items,
-      showFullItem: !prevState.showFullItem
-    }));
-  }
-
-  chooseCategory(category) {
-    if(category === 'all') {
-      this.setState({currentItems: this.state.items});
-      return;
-    }
-    this.setState({
-      currentItems: this.state.items.filter(item => item.category === category)
-    });
-  }
-
-  addToOrder(item) {
-    const isInArray = this.state.orders.some(order => order.id === item.id);
+  const addToOrder = (item) => {
+    const isInArray = orders.some(order => order.id === item.id);
     if (!isInArray) {
-      const newOrders = [...this.state.orders, item];
-      this.setState({ orders: newOrders }, () => {
-        localStorage.setItem('orders', JSON.stringify(newOrders));
-      });
-    }
-  }
-
-
-  deleteOrder(id) {
-    const newOrders = this.state.orders.filter(order => order.id !== id);
-    this.setState({
-      orders: newOrders
-    }, () => {
+      const newOrders = [...orders, item];
+      setOrders(newOrders);
       localStorage.setItem('orders', JSON.stringify(newOrders));
-    });
-  }
+    }
+  };
 
-  loadOrdersFromLocalStorage() {
-    const orders = JSON.parse(localStorage.getItem('orders')) || [];
-    this.setState({ orders });
-  }
+  const deleteOrder = (id) => {
+    const newOrders = orders.filter(order => order.id !== id);
+    setOrders(newOrders);
+    localStorage.setItem('orders', JSON.stringify(newOrders));
+  };
 
-  render() {
-    return (
-      <div className="wrapper">
-          <Tabs orders={this.state.orders} onDelete={this.deleteOrder} />
-          <Header/>
-          <Categories chooseCategory={this.chooseCategory} />
-          <Items onShowItem={this.onShowItem} items={this.state.currentItems} onAdd={this.addToOrder} />
-          {this.state.showFullItem && <ShowFullItem onShowItem={this.onShowItem} onAdd={this.addToOrder} items={this.state.fullItem} />}
-      </div>
-    );
-  }
-}
+  const loadOrdersFromLocalStorage = () => {
+    const storedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+    setOrders(storedOrders);
+  };
+
+  return (
+    <div className="wrapper">
+      <Tabs orders={orders} onDelete={deleteOrder} />
+      <Header />
+      <Categories chooseCategory={chooseCategory} />
+      <Items onShowItem={onShowItem} items={currentItems} onAdd={addToOrder} />
+      {showFullItem && <ShowFullItem onShowItem={onShowItem} onAdd={addToOrder} items={fullItem} />}
+    </div>
+  );
+};
 
 export default Main;

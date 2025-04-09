@@ -1,16 +1,19 @@
-import React, { Component } from 'react'
-import Item from './Item'
+import React from 'react';
+import Item from './Item';
 
-export class Items extends Component {
-    render() {
-        return (
-            <main>
-                {this.props.items.map(el => (
-                    <Item onShowItem={this.props.onShowItem} key={el.id} items={el} onAdd={this.props.onAdd} />
-                ))} 
-            </main>
-        )
-    }
-}
+const Items = ({ items, onShowItem, onAdd }) => {
+  return (
+    <main>
+      {items.map(el => (
+        <Item
+          key={el.id}
+          items={el}
+          onShowItem={onShowItem}
+          onAdd={onAdd}
+        />
+      ))}
+    </main>
+  );
+};
 
-export default Items
+export default Items;

@@ -1,33 +1,24 @@
-import React, { Component } from 'react'
-import Header from './Header'
-import Tabs from './Tabs'
+import React, { useState, useEffect } from 'react';
+import Header from './Header';
+import Tabs from './Tabs';
 import Categories from './Categories';
 import Items from './Items';
 import ShowFullItem from './ShowFullItem';
-import Footer from './Footer'
+import Footer from './Footer';
 
-export class Catalog extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      orders: [],
-      currentItems: [],
-      products: [],
-      showFullItem: false,
-      fullItem: {}
-    };
-    this.addToOrder = this.addToOrder.bind(this);
-    this.deleteOrder = this.deleteOrder.bind(this);
-    this.chooseCategory = this.chooseCategory.bind(this);
-    this.onShowItem = this.onShowItem.bind(this);
-  }
+const Catalog = () => {
+  const [orders, setOrders] = useState([]);
+  const [currentItems, setCurrentItems] = useState([]);
+  const [items, setItems] = useState([]);
+  const [showFullItem, setShowFullItem] = useState(false);
+  const [fullItem, setFullItem] = useState({});
 
-  componentDidMount() {
-    this.readFromFile();
-    this.loadOrdersFromLocalStorage();
-  }
+  useEffect(() => {
+    readFromFile();
+    loadOrdersFromLocalStorage();
+  }, []);
 
-  readFromFile() {
+  const readFromFile = () => {
     fetch("http://localhost:5000/product")
       .then(response => {
         if (!response.ok) {
@@ -37,70 +28,53 @@ export class Catalog extends Component {
       })
       .then(data => {
         console.log(data);
-        this.setItems(data);
+        setItems(data);
+        setCurrentItems(data);
       })
       .catch(error => console.error('Error reading file:', error));
-  }
+  };
 
-  setItems(newProduct) {
-    this.setState({
-      items: newProduct,
-      currentItems: newProduct
-    });
-  }
+  const loadOrdersFromLocalStorage = () => {
+    const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+    setOrders(savedOrders);
+  };
 
-  onShowItem(items) {
-    this.setState(prevState => ({
-      fullItem: items,
-      showFullItem: !prevState.showFullItem
-    }));
-  }
-
-  chooseCategory(category) {
-    if(category === 'all') {
-      this.setState({currentItems: this.state.items});
-      return;
-    }
-    this.setState({
-      currentItems: this.state.items.filter(item => item.category === category)
-    });
-  }
-
-  deleteOrder(id) {
-    this.setState({
-      orders: this.state.orders.filter(order => order.id !== id)
-    });
-  }
-
-  addToOrder(item) {
-    const isInArray = this.state.orders.some(order => order.id === item.id);
+  const addToOrder = (item) => {
+    const isInArray = orders.some(order => order.id === item.id);
     if (!isInArray) {
-      this.setState(prevState => ({
-        orders: [...prevState.orders, item]
-      }));
+      setOrders(prevOrders => [...prevOrders, item]);
     }
-  }
+  };
 
-  loadOrdersFromLocalStorage() {
-    const orders = JSON.parse(localStorage.getItem('orders')) || [];
-    this.setState({ orders });
-  }
+  const deleteOrder = (id) => {
+    setOrders(prevOrders => prevOrders.filter(order => order.id !== id));
+  };
 
-  render() {
-    return (
-      <div className='wrapper-catalog'>
-          <section className='catalog'>
-            <Tabs orders={this.state.orders} onDelete={this.deleteOrder} />
-            <Header/>
-            <Categories chooseCategory={this.chooseCategory} />
-            <Items onShowItem={this.onShowItem} items={this.state.currentItems} onAdd={this.addToOrder} />
-            {this.state.showFullItem && <ShowFullItem onShowItem={this.onShowItem} onAdd={this.addToOrder} items={this.state.fullItem} />}
-            <Footer />
-          </section>
-      </div>
+  const chooseCategory = (category) => {
+    if (category === 'all') {
+      setCurrentItems(items);
+    } else {
+      setCurrentItems(items.filter(item => item.category === category));
+    }
+  };
 
-    )
-  }
-}
+  const onShowItem = (item) => {
+    setFullItem(item);
+    setShowFullItem(prev => !prev);
+  };
 
-export default Catalog
+  return (
+    <div className='wrapper-catalog'>
+      <section className='catalog'>
+        <Tabs orders={orders} onDelete={deleteOrder} />
+        <Header />
+        <Categories chooseCategory={chooseCategory} />
+        <Items onShowItem={onShowItem} items={currentItems} onAdd={addToOrder} />
+        {showFullItem && <ShowFullItem onShowItem={onShowItem} onAdd={addToOrder} items={fullItem} />}
+        <Footer />
+      </section>
+    </div>
+  );
+};
+
+export default Catalog;

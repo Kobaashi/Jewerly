@@ -49,7 +49,7 @@ function Tabs({ orders, onDelete, setOrders }) {
     });
 
     if (!response.ok) {
-      const errorText = await response.text(); // Get the error as text
+      const errorText = await response.text();
       console.error('Server Error:', errorText);
       return;
     }
