@@ -9,7 +9,7 @@ import OrderModel from './model/order.js';
 import { format } from 'date-fns';
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 const mongodb = "mongodb+srv://Koba_Yashy:GodSlayer@cluster0.s4qdc.mongodb.net/Jewerly?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose

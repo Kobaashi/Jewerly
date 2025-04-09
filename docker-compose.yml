@@ -1,24 +1,21 @@
-version: '3.8'
-
 services:
   frontend:
     build: ./frontend
     ports:
-      - "5173:5173"
+      - "3000:5173"
     networks:
       - jewelry
     environment:
-      - REACT_APP_API_URL=http://backend:3002
+      - REACT_APP_API_URL=http://backend:5000
 
   backend:
     build: ./backend
     ports:
-      - "3002:3003"
+      - "5000:5000"
     networks:
       - jewelry
     depends_on:
       - mongodb
-
 
   mongodb:
     image: mongo:latest
