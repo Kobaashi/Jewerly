@@ -13,6 +13,7 @@ function Tabs({ orders, onDelete, setOrders }) {
       const currentOrders = [...orders];
       saveOrdersToServer(currentOrders);
       alert('Дякую за покупку!');
+      onDeleteAll();
     } else {
       alert('Будь ласка, увійдіть для покупки товарів.');
     }
@@ -65,8 +66,8 @@ function Tabs({ orders, onDelete, setOrders }) {
 
     return (
       <div>
-        {orders.map((el) => (
-          <Order onDelete={onDelete} key={el.id} items={el} />
+        {orders.map((el, index) => (
+          <Order onDelete={onDelete} key={index} items={el} />
         ))}
         <p className='sum'>Сума: {new Intl.NumberFormat().format(sum)}₴</p>
         <button className='buy' onClick={handleBuy}>Купити</button>

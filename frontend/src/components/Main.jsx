@@ -68,7 +68,7 @@ const Main = () => {
 
   return (
     <div className="wrapper">
-      <Tabs orders={orders} onDelete={deleteOrder} />
+      <Tabs orders={orders} onDelete={deleteOrder} setOrders={setOrders} />
       <Header />
       <Categories chooseCategory={chooseCategory} />
       <Items onShowItem={onShowItem} items={currentItems} onAdd={addToOrder} />
