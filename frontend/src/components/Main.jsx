@@ -18,7 +18,7 @@ const Main = () => {
   }, []);
 
   const readFromFile = () => {
-    fetch("http://localhost:5000/item")
+    fetch("http://localhost:5000/api/item")
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

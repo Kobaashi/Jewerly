@@ -19,7 +19,7 @@ const Catalog = () => {
   }, []);
 
   const readFromFile = () => {
-    fetch("http://localhost:5000/product")
+    fetch("http://localhost:5000/api/product")
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

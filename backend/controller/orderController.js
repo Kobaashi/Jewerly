@@ -1,19 +1,28 @@
+import { format } from 'date-fns';
+import OrderModel from '../model/order.js';
 
-const fetch = async (req, res) => {
+const PostOrder = async (req, res) => {
   try {
-    const items = await Item.find();
+    const { date, orders } = req.body;
 
-    console.log('Fetched items:', items.length > 0 ? items : 'No items found');
+    console.log('Received data:', req.body);
 
-    if (items.length === 0) {
-      return res.status(404).json({ message: 'No items found' });
-    }
+    const formattedDate = format(new Date(), 'yyyy-MM-dd\'T\'HH:mm:ss');
 
-    res.json(items);
+    const newOrder = new OrderModel({
+      date: formattedDate || new Date(),
+      orders: orders.map(item => ({
+        name: item.name,
+        price: item.price,
+      }))
+    });
+
+    await newOrder.save();
+    res.json({ success: true, message: "Orders added successfully!" });
   } catch (err) {
-    console.error('❌ Error fetching items:', err);
+    console.error('Error:', err);
     res.status(500).json({ error: err.message });
   }
 }
 
-export default fetch;
+export default PostOrder;
