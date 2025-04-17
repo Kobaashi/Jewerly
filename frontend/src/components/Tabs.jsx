@@ -25,7 +25,7 @@ function Tabs({ orders, onDelete, setOrders }) {
   };
 
   const saveOrdersToServer = async (currentOrders) => {
-    const currentDate = new Date().toLocaleString();
+    const currentDate = new Date().toISOString(); // краще ISO формат для бази
     const orderData = currentOrders.map((order) => ({
       name: order.title,
       price: order.price,
@@ -36,25 +36,30 @@ function Tabs({ orders, onDelete, setOrders }) {
       orders: orderData,
     };
 
-    let existingData = JSON.parse(localStorage.getItem('orders')) || [];
-    existingData.push(dataToSave);
+    try {
+      const response = await fetch('http://localhost:5000/api/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSave),
+      });
 
-    localStorage.setItem('orders', JSON.stringify(existingData));
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Server Error:', errorText);
+        return false;
+      }
 
-    const response = await fetch('http://localhost:5000/order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(dataToSave),
-    });
+      // Якщо все успішно — очищаємо LocalStorage
+      localStorage.removeItem('orders');
+      return true;
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Server Error:', errorText);
-      return;
+    } catch (err) {
+      console.error('Error saving to server:', err);
+      return false;
     }
-  }
+  };
 
   const onDeleteAll = () => {
     setOrders([]);
