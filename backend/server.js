@@ -6,10 +6,12 @@ import orderRoute from './routes/orderRoute.js';
 import ordersRoute from './routes/ordersRoute.js';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
-const PORT = 5000;
-const mongodb = "mongodb+srv://Koba_Yashy:GodSlayer@cluster0.s4qdc.mongodb.net/Jewerly?retryWrites=true&w=majority&appName=Cluster0";
+const PORT = process.env.PORT || 3000;
+const mongodb = process.env.MONGODB_URI;
 
 mongoose
   .connect(mongodb)
