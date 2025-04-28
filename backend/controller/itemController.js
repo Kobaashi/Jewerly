@@ -12,7 +12,7 @@ const GetItem = async (req, res) => {
 
       res.json(items);
     } catch (err) {
-      console.error('❌ Error fetching items:', err);
+      console.error('Error fetching items:', err);
       res.status(500).json({ error: err.message });
     }
 }
