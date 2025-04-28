@@ -8,7 +8,6 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
-dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const mongodb = process.env.MONGODB_URI;
@@ -19,6 +18,7 @@ mongoose
   .catch(err => console.log('Errot connect to MongoDB', err));
   app.use(cors());
   app.use(bodyParser.json());
+  dotenv.config();
 
 app.get('/', (req, res) => {
   res.send( "Server is working");
